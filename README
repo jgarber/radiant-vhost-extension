@@ -1,3 +1,5 @@
 = Vhost
 
-Description goes here
+This extension allows you to host multiple separate sites with their own pages, snippets, and layouts on the same Radiant instance.  Everything is scoped to the site, so you must log in separately at each domain.  Thus, you can host multiple clients' sites.
+
+Because this extension scopes pages, snippets, and layouts, it is not compatible with the multi_site extension.

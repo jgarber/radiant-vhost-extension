@@ -1,0 +1,26 @@
+- render_region :main do |main|
+  - main.edit_header do
+    - if @site.new_record?
+      %h1 New Site
+    - else
+      %h1 Edit Site
+  - main.edit_form do
+    - form_tag do
+      = render_region :form_top
+      .form-area
+        - render_region :form do |form|
+          - form.edit_hostname do
+            %p.hostname
+              %label{:for=>"site_hostname"} Hostname
+              = text_field "site", "hostname", :class => 'textbox', :maxlength => 100
+          - form.edit_users do
+            %p.users
+              %label{:for=>"site_users"} Users
+              = collection_select :site, :user_ids, User.find(:all), :id, :name, {}, :multiple => true, :name => 'site[user_ids][]', :size => '10'
+      - render_region :form_bottom do |form_bottom|
+        - form_bottom.edit_buttons do
+          %p.buttons
+            = save_model_button(@site)
+            = save_model_and_continue_editing_button(@site)
+            or
+            = link_to 'Cancel', site_index_url

@@ -11,8 +11,8 @@ class AddSitesUsers < ActiveRecord::Migration
   
   
   def self.down
-    drop_table :sites_users
     remove_index :sites_users, [:site_id, :user_id]
     remove_index :sites_users, :user_id
+    drop_table :sites_users
   end
 end

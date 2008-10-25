@@ -1,0 +1,3 @@
+[submodule "vendor/scoped_access"]
+	path = vendor/scoped_access
+	url = git://github.com/maiha/scoped_access.git

@@ -127,7 +127,6 @@ records:
   PageParts:
     home_page:
       id: 1
-      site_id: 1
       name: body
       page_id: 1
       content: |
@@ -142,7 +141,6 @@ records:
         </r:find>
     file_not_found:
       id: 2
-      site_id: 1
       name: body
       page_id: 2
       filter_id: Textile
@@ -156,7 +154,6 @@ records:
         "<< Back to Home Page":/
     rss_feed:
       id: 3
-      site_id: 1
       name: body
       page_id: 3
       content: |
@@ -183,7 +180,6 @@ records:
         </rss>
     articles:
       id: 4
-      site_id: 1
       name: body
       page_id: 4
       content: |
@@ -194,7 +190,6 @@ records:
         </ul>
     first_post:
       id: 5
-      site_id: 1
       name: body
       page_id: 5
       filter_id: Textile
@@ -202,7 +197,6 @@ records:
         This post uses "textile":http://www.textism.com/tools/textile/.
     second_post:
       id: 6
-      site_id: 1
       name: body
       page_id: 6
       filter_id: Markdown
@@ -210,7 +204,6 @@ records:
         This post uses **Markdown**.
     styles:
       id: 7
-      site_id: 1
       name: body
       page_id: 7
       content: |
