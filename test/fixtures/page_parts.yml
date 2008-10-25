@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+ruby_body:
+  id: 1
+  name: body
+  content: This is the body portion of the Ruby home page.
+  page_id: 1
+rails_body:
+  id: 2
+  name: body
+  content: This is the Rails home page.
+  page_id: 2

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+homepage:
+  id: 1
+  title: Ruby Home Page
+  breadcrumb: Home
+  slug: /
+  status_id: 100
+  parent_id:
+  published_at: 2006-01-30 08:41:07 
+  site_id: 1
+documentation:
+  id: 2
+  title: Rails Home Page
+  breadcrumb: Home
+  slug: /
+  status_id: 100
+  parent_id:
+  published_at: 2006-01-30 08:41:07 
+  site_id: 2

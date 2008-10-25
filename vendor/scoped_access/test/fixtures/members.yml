@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+saki:
+  id: 1
+  name: Saki
+  group_id: 1
+  grade: 2
+  deleted: false
+maiha:
+  id: 2
+  name: Maiha
+  group_id: 1
+  grade: 2
+  deleted: true
+yurina:
+  id: 3
+  name: Yurina
+  group_id: 1
+  grade: 1
+  deleted: false
+risako:
+  id: 4
+  name: Risako
+  group_id: 1
+  grade: 1
+  deleted: false
+airi:
+  id: 10
+  name: Airi
+  group_id: 2
+  grade: 2
+  deleted: false
+

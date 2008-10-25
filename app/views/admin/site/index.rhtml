@@ -1,0 +1,39 @@
+<h1>Sites</h1>
+
+<table id="sites" class="index" cellpadding="0" cellspacing="0" border="0">
+  <thead>
+    <tr>
+      <th class="hostname">Host</th>
+      <th class="users">Users</th>
+      <th class="modify">Modify</th>
+    </tr>
+  </thead>
+  <tbody>
+<% unless @sites.empty? -%>
+<% for site in @sites -%>
+    <tr class="node level-1">
+      <td class="site">
+        <%= link_to site.hostname, site_edit_url(:id => site) %>
+      </td>
+      <td class="users">
+        <%=
+        site.users.collect(&:name).join(', ')
+        %>
+      </td>
+      <td class="remove"><%= link_to(image('remove', :alt => 'Remove Site'), site_remove_url(:id => site)) %></td>
+    </tr>
+<% end -%>
+<% else -%>
+    <tr>
+      <td colspan="3" class="note">No Sites</td>
+    </tr>
+<% end -%>
+  </tbody>
+</table>
+<script type="text/javascript">
+// <![CDATA[
+  new RuledTable('sites');
+// ]]>
+</script>
+
+<p><%= link_to 'New Site', site_new_url %></p>

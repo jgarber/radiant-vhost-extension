@@ -1,0 +1,17 @@
+--- 
+record_1: 
+  name: "miso soup"
+  member_id: 1
+  id: 1
+record_2: 
+  name: "strawberry"
+  member_id: 2
+  id: 2
+record_3: 
+  name: "natto"
+  member_id: 3
+  id: 3
+record_4: 
+  name: "golf"
+  member_id: 10
+  id: 4
