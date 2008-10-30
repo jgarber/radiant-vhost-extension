@@ -3,18 +3,26 @@
 # See radiant/app/controllers/site_controller.rb
 module CacheByDomain
   def show_page
-    # Page.request = request # Store the request
     response.headers.delete('Cache-Control')
-    url = params[:url].to_s
+    
+    url = params[:url]
+    if Array === url
+      url = url.join('/')
+    else
+      url = url.to_s
+    end
+    
     cache_key = cache_key_for_url(url) # Use cache_key, not raw URL
-    if (request.get? || request.head?) and live? and (@cache.response_cached?(cache_key))
+    
+    if (request.get? || request.head?) and live? and (@cache.response_cached?(url))
       @cache.update_response(cache_key, response, request)
       @performed_render = true
     else
       show_uncached_page(url)
     end
   end
-
+  
+  
   private
     def cache_key_for_url(url)
       "#{request.host}/#{url}"
