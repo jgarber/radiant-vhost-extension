@@ -14,7 +14,7 @@ module CacheByDomain
     
     cache_key = cache_key_for_url(url) # Use cache_key, not raw URL
     
-    if (request.get? || request.head?) and live? and (@cache.response_cached?(url))
+    if (request.get? || request.head?) and live? and (@cache.response_cached?(cache_key))
       @cache.update_response(cache_key, response, request)
       @performed_render = true
     else
@@ -28,17 +28,17 @@ module CacheByDomain
       "#{request.host}/#{url}"
     end
 
-    # def show_uncached_page(url)
-    #   @page = find_page(url)
-    #   unless @page.nil?
-    #     process_page(@page)
-    #     cache_key = cache_key_for_url(url) # Use cache key, not raw URL
-    #     @cache.cache_response(cache_key, response) if request.get? and live? and @page.cache?
-    #     @performed_render = true
-    #   else
-    #     render :template => 'site/not_found', :status => 404
-    #   end
-    # rescue Page::MissingRootPageError
-    #   redirect_to welcome_url
-    # end
+    def show_uncached_page(url)
+      @page = find_page(url)
+      unless @page.nil?
+        process_page(@page)
+        cache_key = cache_key_for_url(url) # Use cache key, not raw URL
+        @cache.cache_response(cache_key, response) if request.get? and live? and @page.cache?
+        @performed_render = true
+      else
+        render :template => 'site/not_found', :status => 404
+      end
+    rescue Page::MissingRootPageError
+      redirect_to welcome_url
+    end
 end
