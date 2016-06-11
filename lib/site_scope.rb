@@ -4,6 +4,7 @@ module SiteScope
   end
 
   def current_site
+    logger.info("request: #{request.inspect}")
     hostname = ENV['SITE'] || request.host
     @current_site ||= Site.find_by_hostname(hostname) || Site.find_by_hostname('*')
     raise "No site found to match #{hostname}." unless @current_site
