@@ -2,10 +2,11 @@ module SiteScope
   def self.included(receiver)
     receiver.send :helper_method, :current_site
   end
-  
+
   def current_site
-    @current_site ||= Site.find_by_hostname(request.host) || Site.find_by_hostname('*')
-    raise "No site found to match #{request.host}." unless @current_site
+    hostname = ENV['SITE'] || request.host
+    @current_site ||= Site.find_by_hostname(hostname) || Site.find_by_hostname('*')
+    raise "No site found to match #{hostname}." unless @current_site
     @current_site
   end
 
@@ -16,11 +17,11 @@ module SiteScope
       :create => { :site_id => current_site.id }
     }
   end
-  
+
   def set_site_scope_in_models
     VhostExtension::SITE_SPECIFIC_MODELS.each do |model|
       model.constantize.current_site = self.current_site
     end
   end
-  
+
 end
